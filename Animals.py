@@ -16,9 +16,9 @@ class Animals ():
             print ("El animal esta corriendo")
 
 animal1= Animals ("mamífero", "amarillo", "camina", "salvaje")
-# animal1.atributos()
-# animal1.eat ()
-# animal1.run ()
+animal1.atributos()
+animal1.eat ()
+animal1.run ()
 
 class Tiger (Animals):
     def __init__(self, kind, color, WalkFlyDrag, wild_Domestic, name, speed, force, hungry, heat):
@@ -56,19 +56,23 @@ class Tiger (Animals):
     
 tiger1= Tiger ("mamífero", "amarillo y negro", "camina", "salvaje", "Tigre", 10, 2, True, True)
 prey= Tiger ("mamífero", "blanco y negro", "camina", "salvaje", "Zebra", 30, 2, False, False)
-# tiger1.atributos()
-# prey.atributos()
-# tiger1.swim()
-# tiger1.hunt(prey)
-# tiger1.eat ()
-# tiger1.upload (10,10)
-# tiger1.atributos()
+tiger1.atributos()
+prey.atributos()
+tiger1.swim()
+tiger1.hunt(prey)
+tiger1.eat ()
+tiger1.upload (10,10)
+tiger1.atributos()
 
 class Dog (Animals):
     def __init__(self, kind, color, WalkFlyDrag, wild_Domestic, tenderness, energy):
         super().__init__(kind, color, WalkFlyDrag, wild_Domestic)
         self.tenderness= tenderness
         self.energy= energy
+
+    def atributos (self):
+        super().atributos()
+        print (f"¿El perro es tierno? {self.tenderness}\nTiene {self.energy} puntos de energía")
 
     def sleep (self):
         if self.energy < 50:
@@ -92,6 +96,7 @@ class Dog (Animals):
         print ("El perro esta comiendo")
 
 dog1= Dog ("mamífero", "negro", "camina", "doméstico", True, 60)
+dog1.atributos ()
 dog1.sleep ()
 dog1.eat ()
 dog1.play ()
