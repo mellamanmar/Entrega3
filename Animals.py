@@ -1,44 +1,97 @@
 class Animals ():
-    def __init__(self, kind, color, name, wild_Domestic):
+    def __init__(self, kind, color, WalkFlyDrag, wild_Domestic):
         self.kind= kind
         self.color= color
-        self.name= name
+        self.WalkFlyDrag= WalkFlyDrag
         self.wild_Domestic= wild_Domestic
-
-    def move (self):
-        if self.kind == "terrestre":
-            print ("El animal camina")
-        elif self.kind == "volador":
-            print ("El animal vuela")
-        elif self.kind == "rastrero":
-            print ("El animal se arrastra")
-        else:
-            print ("No tenemos ese tipo en nuestro sistema")
+   
+    def atributos(self):
+        print(f"El tipo de animal es: {self.kind}\nEs un animal de color {self.color}\nQue {self.WalkFlyDrag} y es {self.wild_Domestic}")
     
-    def wildOrDomestic (self):
-        if self.wild_Domestic == "salvaje":
-            print ("El animal es salvaje")
-        if self.wild_Domestic == "domestico" or self.wild_Domestic == "doméstico":
-            print ("El animal es doméstico")
-
-    def talk (self):
-        if self.name == "loro":
-            print ("Sí habla")
-        else:
-            print ("No habla")
-
-animal1= Animals (input ("¿El animal es terrestre, volador o rastrero? ") .lower(), input("¿De qué color es el animal? ") .lower(), input ("¿Qué animal es? ") .lower(), input ("¿Es salvaje o doméstico? ") .lower())
-animal1.move ()
-animal1.talk ()
-animal1.wildOrDomestic ()
-
-class Felines(Animals):
-    def __init__(self, kind, color, name, wild_Domestic, country):
-        super().__init__(kind, color, name, wild_Domestic)
-        self.country= country
+    def eat (self):
+        print ("El animal esta comiendo")
     
-    def whatCountry (self):
-        print ("El ",self.name, "es de ",self.country)
+    def run (self):
+        if self.WalkFlyDrag == "camina" or self.WalkFlyDrag == "Camina":
+            print ("El animal esta corriendo")
 
-gatoMontes= Felines ("Terrestre", "marrón", "Gato Monntés", "Salvaje", "Europa, Asia y África")
-gatoMontes.whatCountry ()
+animal1= Animals ("mamífero", "amarillo", "camina", "salvaje")
+# animal1.atributos()
+# animal1.eat ()
+# animal1.run ()
+
+class Tiger (Animals):
+    def __init__(self, kind, color, WalkFlyDrag, wild_Domestic, name, speed, force, hungry, heat):
+        super().__init__(kind, color, WalkFlyDrag, wild_Domestic)
+        self.name= name
+        self.force= force
+        self.hungry= hungry
+        self.heat= heat
+        self.speed= speed
+    
+    def atributos (self):
+        super().atributos()
+        print (f"El animal es un {self.name} tiene {self.force} puntos de fuerza y {self.speed} puntos de velocidad\n¿Tiene hambre? {self.hungry}\n¿Tiene calor? {self.heat}")
+
+    def upload (self, force, speed):
+        self.force=self.force+force
+        self.speed=self.speed+speed
+
+    def eat (self):
+        if self.hungry:
+            print ("El animal ha comido")
+
+    def hunt (self,prey):
+        hurt= self.speed*self.force
+        if hurt > prey.speed:
+            print (f"El {self.name} ha cazado a la {prey.name}")
+        elif hurt < prey.speed:
+            print (f"La/el {prey.name} ha huído")
+
+    def swim (self):
+        if self.heat == True:
+            print(f"El {self.name} va a nadar")
+        else:
+            print (f"El {self.name} no tiene calor")
+    
+tiger1= Tiger ("mamífero", "amarillo y negro", "camina", "salvaje", "Tigre", 10, 2, True, True)
+prey= Tiger ("mamífero", "blanco y negro", "camina", "salvaje", "Zebra", 30, 2, False, False)
+# tiger1.atributos()
+# prey.atributos()
+# tiger1.swim()
+# tiger1.hunt(prey)
+# tiger1.eat ()
+# tiger1.upload (10,10)
+# tiger1.atributos()
+
+class Dog (Animals):
+    def __init__(self, kind, color, WalkFlyDrag, wild_Domestic, tenderness, energy):
+        super().__init__(kind, color, WalkFlyDrag, wild_Domestic)
+        self.tenderness= tenderness
+        self.energy= energy
+
+    def sleep (self):
+        if self.energy < 50:
+            print ("El perro necesita dormir")
+        elif self.energy > 51:
+            print ("El perro quiere jugar")
+        else:
+            print ("Esa energía no es válida")
+    
+    def play (self):
+        if self.energy > 51:
+            person = input("¿Quieres jugar con el perro? ").upper()
+            if person == "SI":
+                print ("El perro va a jugar contigo")
+            elif person == "NO":
+                print("No es posible jugar")
+        else:
+            return self.sleep()
+        
+    def eat (self):
+        print ("El perro esta comiendo")
+
+dog1= Dog ("mamífero", "negro", "camina", "doméstico", True, 60)
+dog1.sleep ()
+dog1.eat ()
+dog1.play ()
