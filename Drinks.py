@@ -44,18 +44,21 @@ class StrawberryJuice (Drinks):
         super().atributos()
         print ("y tiene un",self.sugary,"por ciento de azúcar")
     
-    def changeDrink(self, name):
-        return super().changeDrink(name)
+    def set_name(self, name):
+        return super().set_name(name)
+    
+    def get_name(self):
+        return super().get_name()
     
     def sell (self, price):
         self.price= price
         if self.price > 0:
-            print (f"El {self.name} se venderá en {self.price}")
+            print (f"El {self._name} se venderá en {self.price}")
         else:
             print ("Ingrese un precio válido")
 
 strawberry1= StrawberryJuice ("Jugo de fresa", "jugo", "1 vaso", 20)
 strawberry1.atributos ()
-strawberry1.changeDrink ("parchita")
+strawberry1.set_name ("parchita")
 strawberry1.atributos ()
 strawberry1.sell (int(input ("¿Cuál es el precio de la bebida? ")))
