@@ -19,10 +19,10 @@ class Texts:
             print ("Que no exceda de 5 párrafos")
     
         
-# text1= Texts (input ("¿De cuántos párrafos es tu texto? "), input("¿En qué idioma esta escrito? "))
-# text1.attributes ()
-# text1.copy()
-# text1.large ()
+text1= Texts (input ("¿De cuántos párrafos es tu texto? "), input("¿En qué idioma esta escrito? "))
+text1.attributes ()
+text1.copy()
+text1.large ()
 
 class BBC (Texts):
     def __init__(self, paragraphs, idiom, type, author):

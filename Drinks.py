@@ -5,7 +5,7 @@ class Drinks:
         self.tipe = tipe
         self.quantity = quantity
     
-    def atributos (self):
+    def attributes (self):
         print (f"Tenemos {self.quantity} de {self._name} que es una bebida de tipo {self.tipe}")
     
     def drinkUp (self):
@@ -29,19 +29,19 @@ class Drinks:
         return self._name
 
 tequila=Drinks ("Tequila", "alcoholica", "1 copa")
-tequila.atributos ()
+tequila.attributes ()
 tequila.drinkUp ()
 tequila.set_name ("vodka")
 print ("Se cambia la bebida por",tequila.get_name())
-tequila.atributos ()
+tequila.attributes ()
 
 class StrawberryJuice (Drinks):
     def __init__(self, name, tipe, quantity, sugary):
         super().__init__(name, tipe, quantity)
         self.sugary= sugary
     
-    def atributos(self):
-        super().atributos()
+    def attributes(self):
+        super().attributes()
         print ("y tiene un",self.sugary,"por ciento de azúcar")
     
     def set_name(self, name):
@@ -58,7 +58,7 @@ class StrawberryJuice (Drinks):
             print ("Ingrese un precio válido")
 
 strawberry1= StrawberryJuice ("Jugo de fresa", "jugo", "1 vaso", 20)
-strawberry1.atributos ()
+strawberry1.attributes ()
 strawberry1.set_name ("parchita")
-strawberry1.atributos ()
+strawberry1.attributes ()
 strawberry1.sell (int(input ("¿Cuál es el precio de la bebida? ")))

@@ -5,7 +5,7 @@ class Animals ():
         self.WalkFlyDrag= WalkFlyDrag
         self.wild_Domestic= wild_Domestic
    
-    def atributos(self):
+    def attributes(self):
         print(f"El tipo de animal es: {self.kind}\nEs un animal de color {self.color}\nQue {self.WalkFlyDrag} y es {self.wild_Domestic}")
     
     def eat (self):
@@ -16,7 +16,7 @@ class Animals ():
             print ("El animal esta corriendo")
 
 animal1= Animals ("mamífero", "amarillo", "camina", "salvaje")
-animal1.atributos()
+animal1.attributes()
 animal1.eat ()
 animal1.run ()
 
@@ -29,8 +29,8 @@ class Tiger (Animals):
         self.heat= heat
         self.speed= speed
     
-    def atributos (self):
-        super().atributos()
+    def attributes (self):
+        super().attributes()
         print (f"El animal es un {self.name} tiene {self.force} puntos de fuerza y {self.speed} puntos de velocidad\n¿Tiene hambre? {self.hungry}\n¿Tiene calor? {self.heat}")
 
     def upload (self, force, speed):
@@ -56,13 +56,13 @@ class Tiger (Animals):
     
 tiger1= Tiger ("mamífero", "amarillo y negro", "camina", "salvaje", "Tigre", 10, 2, True, True)
 prey= Tiger ("mamífero", "blanco y negro", "camina", "salvaje", "Zebra", 30, 2, False, False)
-tiger1.atributos()
-prey.atributos()
+tiger1.attributes()
+prey.attributes()
 tiger1.swim()
 tiger1.hunt(prey)
 tiger1.eat ()
 tiger1.upload (10,10)
-tiger1.atributos()
+tiger1.attributes()
 
 class Dog (Animals):
     def __init__(self, kind, color, WalkFlyDrag, wild_Domestic, tenderness, energy):
@@ -70,8 +70,8 @@ class Dog (Animals):
         self.tenderness= tenderness
         self.energy= energy
 
-    def atributos (self):
-        super().atributos()
+    def attributes (self):
+        super().attributes()
         print (f"¿El perro es tierno? {self.tenderness}\nTiene {self.energy} puntos de energía")
 
     def sleep (self):
@@ -96,7 +96,7 @@ class Dog (Animals):
         print ("El perro esta comiendo")
 
 dog1= Dog ("mamífero", "negro", "camina", "doméstico", True, 60)
-dog1.atributos ()
+dog1.attributes ()
 dog1.sleep ()
 dog1.eat ()
 dog1.play ()
